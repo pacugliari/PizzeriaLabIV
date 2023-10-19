@@ -1,0 +1,26 @@
+<form [formGroup]="formPizza">
+
+    <label for="ingredientes">Ingredientes:</label>
+    <input type="text" id="ingredientes" formControlName="ingredientes" name="ingredientes" required>
+    <div *ngIf="formPizza.controls['ingredientes'].errors?.['required'] && formPizza.controls['ingredientes'].touched"  style="color: red;">
+        Ingredientes es requerido
+    </div>
+
+    <label for="precio">Precio:</label>
+    <input type="number" id="precio" formControlName="precio" name="precio" required>
+    <div *ngIf="formPizza.controls['precio'].errors?.['required'] && formPizza.controls['precio'].touched"  style="color: red;">
+        Precio es requerido
+    </div>
+
+    <label for="peso">Peso (entre 500 y 1000 g):</label>
+    <input type="number" id="peso" formControlName="peso" name="peso" required min="500" max="1000" (change)="calcularPeso()">
+    <div *ngIf="formPizza.controls['peso'].errors?.['required'] && formPizza.controls['peso'].touched"  style="color: red;">
+        Peso es requerido
+    </div>
+    <div *ngIf="!esValidoPeso && formPizza.controls['peso'].dirty"  style="color: red;">
+        Peso no esta en el rango permitido
+    </div>
+</form>
+<br>
+
+<button type="button" class="w-100 btn btn-lg btn-outline-primary" (click)="modificar()">Modificar</button>

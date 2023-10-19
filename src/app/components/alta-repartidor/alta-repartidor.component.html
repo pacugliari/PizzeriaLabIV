@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <body class="bg-light">
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-8 order-md-2 mb-4">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Tabla paises</span>
+          </h4>
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-condensed" >
+              <app-tabla-paises  (eventPaisSeleccionado)="cargarPais($event)" [mostrarSeleccionar]="true" [cargarPaises]="true"></app-tabla-paises>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4 order-md-1">
+          <h4 class="mb-3">Alta repartidor</h4>
+          <form class="needs-validation" novalidate [formGroup]="formRepartidor">
+            
+            <div class="mb-3">
+                <label for="username">DNI</label>
+                <div *ngIf="formRepartidor.controls['dni'].errors?.['required'] && formRepartidor.controls['dni'].touched"  style="color: red;">
+                    DNI es requerido
+                  </div>
+                <div class="input-group">
+                  <input type="number" class="form-control" placeholder="DNI" formControlName="dni" name="dni">
+                </div>
+              </div>
+
+            <div class="mb-3">
+                <label for="username">Nombre</label>
+                <div *ngIf="formRepartidor.controls['nombre'].errors?.['required'] && formRepartidor.controls['nombre'].touched"  style="color: red;">
+                    Nombre es requerido
+                  </div>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre" name="nombre">
+                </div>
+              </div>
+
+            <div class="mb-3">
+              <label for="username">Edad</label>
+              <div *ngIf="formRepartidor.controls['edad'].errors?.['required'] && formRepartidor.controls['edad'].touched"  style="color: red;">
+                Edad es requerido
+            </div>
+              <div class="input-group">
+                <input type="number" class="form-control" placeholder="Edad" formControlName="edad" name="edad">
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email">Capacidad de transporte</label>
+              <div *ngIf="formRepartidor.controls['capacidad'].errors?.['required'] && formRepartidor.controls['capacidad'].touched"  style="color: red;">
+                Capacidad de transporte es requerido
+              </div>
+              <input type="number" class="form-control" placeholder="Capacidad de transporte" formControlName="capacidad" name="capacidad">
+            </div>
+
+
+            <div class="mb-3">
+                <label for="unidadPropia">Unidad propia</label>
+                <div *ngIf="formRepartidor.controls['unidadPropia'].errors?.['required'] && formRepartidor.controls['unidadPropia'].touched"  style="color: red;">
+                    Unidad propia es requerido
+                  </div>
+                <select class="form-control" formControlName="unidadPropia" name="unidadPropia">
+                    <option value="true" selected>True</option>
+                    <option value="false">False</option>
+                </select>
+            </div>
+
+    
+            <div class="mb-3">
+            <label for="country">Pais</label>
+            <div *ngIf="formRepartidor.controls['pais'].errors?.['required'] && formRepartidor.controls['pais'].touched"  style="color: red;">
+                Pais es requerido
+                </div>
+            <input class="custom-select d-block w-100" id="country" required readonly formControlName="pais" name="pais">
+            </div>
+
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="formRepartidor.invalid" (click)="registrarRepartidor()">Registrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+  </body>
+</html>

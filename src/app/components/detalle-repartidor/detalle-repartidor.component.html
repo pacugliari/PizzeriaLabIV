@@ -1,0 +1,9 @@
+
+<div class="pelicula-detalle-container" *ngIf="repartidor?.nombre">
+    <h2>{{ repartidor?.nombre }}</h2>
+    <p>Pais: {{ repartidor?.pais?.nombre }}</p>
+    <p>DNI: {{ repartidor?.dni  }}</p>
+    <p>Capacidad de reparto: {{ repartidor?.capacidad }}</p>
+    <p>Edad: {{ repartidor?.edad }}</p>
+    <p>Unidad propia: {{ repartidor?.unidadPropia }}</p>
+  </div>

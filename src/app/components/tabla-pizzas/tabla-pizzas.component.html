@@ -1,0 +1,29 @@
+<div class="row">
+    <table >
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Ingredientes</th>
+            <th>Precio</th>
+            <th>Peso</th>
+            <th *ngIf="mostrarSeleccionar">Seleccionar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pizza of pizzas">
+            <td>{{ pizza.nombre }}</td>
+            <td>{{ pizza.ingredientes }}</td>
+            <td >{{ pizza.precio }}</td>
+            <td >{{ pizza.peso }}</td>
+            <!--<td >{{ repartidor.edad }}</td>
+            <td >{{ repartidor.unidadPropia }}</td>
+            <td>
+              <img [src]="pelicula.fotoPelicula" alt="{{ pelicula.nombre }}" width="100">
+            </td>-->
+            <td *ngIf="mostrarSeleccionar">
+                <button (click)="seleccionar(pizza)" class="btn btn-primary">X</button>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+</div>
