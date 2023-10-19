@@ -32,6 +32,7 @@ export class PaisService {
           pais2.informacion = paisAfrica;
           paises.push(pais2);
         }
+        console.log(paises)
         resolve(paises);
       }, error => {
         reject(error);
